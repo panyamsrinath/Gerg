@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Person1",
+        "number": 9999911111,
+        "address": "Lane1, Road1, City 1",
+        "mail": "person1@gmail.com",
+        "iamount": 50000,
+        "ramount": 60000,
+        "tenure": 2
+    },
+    {
+        "name": "Person2",
+        "number": 9999922222,
+        "address": "Lane2, Road2, City 2",
+        "mail": "person2@gmail.com",
+        "iamount": 40000,
+        "ramount": 50000,
+        "tenure": 2
+    },
+    {
+        "name": "Person3",
+        "number": 9999933333,
+        "address": "Lane3, Road3, City 3",
+        "mail": "person3@gmail.com",
+        "iamount": 50000,
+        "ramount": 60000,
+        "tenure": 3
+    },
+    {
+        "name": "Person4",
+        "number": 9999944444,
+        "address": "Lane4, Road4, City 4",
+        "mail": "person4@gmail.com",
+        "iamount": 70000,
+        "ramount": 80000,
+        "tenure": 4
+    }
+]

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>GERG | INVESTORS</title>
+    <link rel="stylesheet" href="careerstyle.css">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- workings hours tab starts-->
+        <div class="row work form-group">
+            <div class="col-md-6 fa">Working Hours: Mon - Sat : 9.00 am - 7.00 pm, Sunday Closed</div>
+            <div class="col-md-3 fa fa-phone"> Call Us at +91 - 8792462607</div>
+            <div class="col-md-3 fa fa-envelope">contact@goldeneraroyalgroup.com</div>
+        </div>
+    </div>
+    <!-- workings hours tab ends-->
+
+    <!-- logo bar starts here-->
+    <br>
+    <div class="container-fluid">
+        <div class="row logo">
+            <div class="col-md-3">
+                <a href="index.html"><img src="assets/images/gerglogo.jpg"></a>
+            </div>
+            <div class="col-md-9" class="text-center">
+                <ul class="nav nav-pills ">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="companies.html">Group Of Companies</a></li>
+                    <li><a href="investors.html">Investors</a></li>
+                    <li><a href="intiatives.html">Our Intiatives</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr id="hr_blue">
+    </div>
+    <!-- logo bar starts here-->
+    <!-- Banner-image starts -->
+    <div id="career-banner">
+        <img src="assets/images/investors.jpg" height="200px" width="100%;">
+    </div>
+    <!-- Banner-image Ends -->
+    <br>
+    <h3 class="text-center">Our <span class="blue">Investors Details</span></h3>
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading text-center">
+                        <b> Add Investors</b>
+                    </div>
+                    <div class="panel-body">
+                        <form action="#" onsubmit="addInvestor()">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Mobile No">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Invest Amount">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Invest Amount">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Return Amount">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Tenure">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-danger btn-block">Add Investor</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <button class="btn btn-info" onclick="loadDoc()">Show Investors</button>
+                <br>
+                <div id='toggle'>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>MOBILE NO</th>
+                            <th>ADDRESS</th>
+                            <th>E-MAIL</th>
+                            <th>INVEST AMOUNT</th>
+                            <th>RETURN AMOUNT</th>
+                            <th>TENURE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="investorsDetails">
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <footer>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h4><i><u>Our Address</u></i></h4>
+                    <br>
+                    <p>No. 820, RNS Reddy Complex,13th Cross,West of S Kariyappa Road,Jayanagar 7th Block,Bangalore-
+                        560082</p>
+                    <p>All Rights are Reserved | &copy; 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+
+        document.getElementById("toggle").style.display = "none";
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var investorsdata = JSON.parse(xhttp.responseText);
+                    renderHtml(investorsdata);
+                    document.getElementById("toggle").style.display = "block";
+                }
+            };
+            xhttp.open("GET", "http://127.0.0.1:8887/assets/investors.json", true);
+            xhttp.send();
+
+        }
+        function renderHtml(data) {
+            for (var i = 0; i < data.length; i++) {
+                var z = document.getElementById("investorsDetails");
+                z.innerHTML += "<tr><td>" + data[i].name + "</td><td>" + data[i].number + "</td><td>" + data[i].address + "</td><td>" + data[i].mail + "</td><td>" + data[i].iamount + "</td><td>" + data[i].ramount + "</td><td>" + data[i].tenure;
+            }
+
+        }
+        function addInvestor(){
+
+        }
+    </script>
+</body>
